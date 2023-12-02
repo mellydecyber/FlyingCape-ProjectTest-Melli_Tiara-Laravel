@@ -39,7 +39,18 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class, 'user_id');
+    }
+
+    public function enrolledClasses()
+    {
+        return $this->belongsToMany(Classes::class, 'enrollments', 'user_id', 'class_id')
+            ->withPivot('role')
+            ->withTimestamps();
+    }
 }
