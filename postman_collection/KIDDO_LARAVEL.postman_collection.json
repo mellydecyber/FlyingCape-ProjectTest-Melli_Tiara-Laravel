@@ -1,0 +1,966 @@
+{
+	"info": {
+		"_postman_id": "27b703e2-f4ad-46de-9b57-2fcfc7107565",
+		"name": "KIDDO",
+		"description": "**Test Flying Cape**\n\n1. Laravel PHP : You will be developing a REST API that has this requirements :\n    \n\nThe system will be about e-learning, there will be 3 users :\n\n1. Admin\n2. Teacher\n3. Student\n    \n\nas an Admin able to :\n\n- CRD class ✅\n- CRD user ✅\n- enroll user into a class as a student or teacher ✅\n    \n\nas a Teacher able to :\n\n- Read enrolled class to me✅\n- CRD class’s topic✅\n- Comment topic✅\n- Read topic’s comment✅\n    \n\nas a Student able to :\n\n- Read enrolled class to me✅\n- Read class’s topic✅\n- Comment topic✅\n- Read topic’s comment✅\n    \n\nPlease fill this code requirement :\n\n- Laravel migration ✅\n- Eloquent ORM ✅\n- Service pattern ✅\n- Dependency Injection ✅\n- Laravel Unit/Feature Test✅",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4080191"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Class",
+					"item": [
+						{
+							"name": "List All Classes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/admin/classes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"classes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Class by ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/admin/classes/{{class_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"classes",
+										"{{class_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Class",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"TKJ-1\",\n    \"description\": \"Cool Class\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/admin/classes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"classes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Class",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"TKJ-1\",\n    \"description\": \"Cool Class Eya\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/admin/classes/{{class_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"classes",
+										"{{class_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Class",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/admin/classes/{{class_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"classes",
+										"{{class_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "List All User",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/admin/user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/admin/classes/{{user_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"classes",
+										"{{user_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Melli Tiara\",\n    \"email\": \"helloimhere1@gmail.com\",\n    \"password\": \"Hello1mH3r3\",\n    \"role\": \"Teacher\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/admin/user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update User",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Melli Tiara\",\n    \"email\": \"helloimhere@gmail.com\",\n    \"password\": \"Hello1mH3r3\",\n    \"role\": \"Teacher\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/admin/user/{{user_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"user",
+										"{{user_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/admin/user/{{user_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"user",
+										"{{user_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Enroll",
+					"item": [
+						{
+							"name": "Enroll User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"class_id\": 1,\n    \"user_id\": 2,\n    \"role\": \"Student\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/admin/enroll",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"enroll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Enroll",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"class_id\": 1,\n    \"user_id\": 2,\n    \"role\": \"Student\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/admin/enroll/{{enroll_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"enroll",
+										"{{enroll_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Revoked Enrollment",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/admin/enroll/{{class_id}}/{{user_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"enroll",
+										"{{class_id}}",
+										"{{user_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "acc",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@example.com\",\n    \"password\": \"password1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "Enroll",
+					"item": [
+						{
+							"name": "Read enrolled class to me",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/teacher/enrolled-classes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"teacher",
+										"enrolled-classes"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Topic",
+					"item": [
+						{
+							"name": "List All Topic",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/teacher/topics/all",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"teacher",
+										"topics",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List All Topic By Teacher Auth",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/teacher/topics",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"teacher",
+										"topics"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List All Topic By Class",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/teacher/topics/class/{{class_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"teacher",
+										"topics",
+										"class",
+										"{{class_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Topic By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/teacher/topics/{{topic_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"teacher",
+										"topics",
+										"{{topic_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Topic",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"topic_name\": \"Algoritma\",\n    \"content\": \"Cool Class\",\n    \"class_id\": 26\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/teachers/topic",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"teachers",
+										"topic"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Topic",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"topic_name\": \"Algoritma\",\n    \"content\": \"Cool Class\",\n    \"class_id\": 26\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/teacher/topics/{{topic_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"teacher",
+										"topics",
+										"{{topic_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Topic",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/teacher/topics/{{topic_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"teacher",
+										"topics",
+										"{{topic_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Comment",
+					"item": [
+						{
+							"name": "Create Comment Topic",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"comment_text\": \"Capek Aing buk Belajar\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/teacher/topics/{{topic_id}}/comments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"teacher",
+										"topics",
+										"{{topic_id}}",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read Comment Based On Topic",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/teacher/topics/{{topic_id}}/comments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"teacher",
+										"topics",
+										"{{topic_id}}",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Comment",
+					"item": [
+						{
+							"name": "Create Comment Topic",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"comment_text\": \"Pengen Healing\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/student/topics/{{topic_id}}/comments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"student",
+										"topics",
+										"{{topic_id}}",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read Comment Based On Topic",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/student/topics/{{topic_id}}/comments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"student",
+										"topics",
+										"{{topic_id}}",
+										"comments"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Enroll",
+					"item": [
+						{
+							"name": "Read enrolled class to me",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/student/enrolled-classes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"student",
+										"enrolled-classes"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Topic",
+					"item": [
+						{
+							"name": "List All Topic By Class",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/student/topics/class/{{class_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"student",
+										"topics",
+										"class",
+										"{{class_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000"
+		},
+		{
+			"key": "token",
+			"value": "1|hitvwqzYei6gb7SM55zNnFMkTkYhn2WYwOfnfrxifb09b8c7"
+		},
+		{
+			"key": "class_id",
+			"value": "1"
+		},
+		{
+			"key": "user_id",
+			"value": "2"
+		},
+		{
+			"key": "enroll_id",
+			"value": "1"
+		},
+		{
+			"key": "topic_id",
+			"value": "1"
+		}
+	]
+}
