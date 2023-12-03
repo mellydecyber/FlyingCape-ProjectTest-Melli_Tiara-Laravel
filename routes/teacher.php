@@ -17,5 +17,5 @@ Route::prefix('topics')->name('topic.')->controller(TopicController::class)->gro
     Route::delete('/{topicId}', 'destroy');
 });
 
-Route::post('/topics/{topicId}/comments', [CommentController::class, 'store']);
-Route::get('/topics/{topicId}/comments', [CommentController::class, 'getCommentsByTopic']);
+Route::post('/topics/{topicId}/comments', [CommentController::class, 'store'])->name('teacher.comment.store');
+Route::get('/topics/{topicId}/comments', [CommentController::class, 'getCommentsByTopic'])->name('teacher.comment.get');;

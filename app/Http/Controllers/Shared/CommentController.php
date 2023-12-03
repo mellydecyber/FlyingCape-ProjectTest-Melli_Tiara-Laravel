@@ -47,8 +47,7 @@ class CommentController extends BaseApiController
 
         return $this->sendSuccess(
             $comments,
-            ['message' => 'Get Comment by Topic'],
-            201
+            ['message' => 'Get Comment by Topic']
         );
     }
 }
